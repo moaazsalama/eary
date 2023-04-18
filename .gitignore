@@ -1,0 +1,4 @@
+//igonre uploads
+// Path: .gitignore
+// Compare this snippet from lib/controller/question_controller.js:
+/uploads/
