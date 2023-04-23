@@ -1,20 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const eary = require('./lib/routes/eary');
 const login = require('./lib/routes/auth/login');
-const update = require('./lib/routes/update');
-const manage_question = require('./lib/routes/manage_question');
-// const answer = require('./lib/routes/answer');
-const showdegree = require('./lib/routes/showdegree');
 const register = require('./lib/routes/auth/register');
-// const create_exam=require('./lib/routes/createExam');
-const MUserAccounts = require('./lib/routes/MUserAccounts');
 const question = require('./lib/routes/questions/create_question');
 const getQuestion = require('./lib/routes/questions/get_question');
 const updateQuestion = require('./lib/routes/questions/update_question');
 const deleteQuestion = require('./lib/routes/questions/delete_question');
 const createAnswer = require('./lib/routes/answers/create_answer');
 const getAnswers = require('./lib/routes/answers/get_answers');
+const exam = require('./lib/routes/exam/take_exam');
+const getAllExams = require('./lib/routes/exam/get_exam_histories');
+const getAllQuestion = require('./lib/routes/questions/get_all_questions');
+
 const app = express();
 
 // parse application/x-www-form-urlencoded
@@ -27,7 +24,7 @@ app.use(bodyParser.raw());
 
 
 //for import eary route
-app.use("", eary, login, update, manage_question, deleteQuestion, question, getQuestion, updateQuestion, createAnswer,getAnswers, showdegree, register, MUserAccounts);
+app.use("", login, deleteQuestion, question, getQuestion,getAllQuestion ,updateQuestion, createAnswer, getAnswers, register,exam,getAllExams);
 app.listen(4000, "localhost", () => {
     console.log("server");
 });
