@@ -11,7 +11,10 @@ const getAnswers = require('./lib/routes/answers/get_answers');
 const exam = require('./lib/routes/exam/take_exam');
 const getAllExams = require('./lib/routes/exam/get_exam_histories');
 const getAllQuestion = require('./lib/routes/questions/get_all_questions');
-
+const getPendingUsers = require('./lib/routes/auth/get_pendding_users');
+const approveUser = require('./lib/routes/auth/apporve_request');
+const rejectUser = require('./lib/routes/auth/reject_request');
+const cors = require('cors');
 const app = express();
 
 // parse application/x-www-form-urlencoded
@@ -22,9 +25,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.raw());
 // app.use(bodyParser.text());
 
-
+app.use(cors());
 //for import eary route
-app.use("", login, deleteQuestion, question, getQuestion,getAllQuestion ,updateQuestion, createAnswer, getAnswers, register,exam,getAllExams);
+app.use("", login, deleteQuestion, question, getQuestion, getAllQuestion, updateQuestion, createAnswer, getAnswers, register, exam, getAllExams, getPendingUsers,approveUser,rejectUser);
 app.listen(4000, "localhost", () => {
     console.log("server");
 });
