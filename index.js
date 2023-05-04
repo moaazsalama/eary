@@ -14,6 +14,8 @@ const getAllQuestion = require('./lib/routes/questions/get_all_questions');
 const getPendingUsers = require('./lib/routes/auth/get_pendding_users');
 const approveUser = require('./lib/routes/auth/apporve_request');
 const rejectUser = require('./lib/routes/auth/reject_request');
+const deleteUser = require('./lib/routes/auth/delete_user');
+const updateUser = require('./lib/routes/auth/update_user');
 const cors = require('cors');
 const app = express();
 
@@ -27,7 +29,7 @@ app.use(bodyParser.raw());
 
 app.use(cors());
 //for import eary route
-app.use("", login, deleteQuestion, question, getQuestion, getAllQuestion, updateQuestion, createAnswer, getAnswers, register, exam, getAllExams, getPendingUsers,approveUser,rejectUser);
+app.use("", login, deleteQuestion, question, getQuestion, getAllQuestion, updateQuestion, createAnswer, getAnswers, register, exam, getAllExams, getPendingUsers,approveUser,rejectUser,deleteUser,updateUser);
 app.listen(4000, "localhost", () => {
     console.log("server");
 });
