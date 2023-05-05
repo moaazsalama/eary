@@ -33,13 +33,3 @@ app.use("", login, deleteQuestion, question, getQuestion, getAllQuestion, update
 app.listen(4000, "localhost", () => {
     console.log("server");
 });
-// create server with port 4000 with http package
-// const server = http.createServer(app);
-// server.listen(4000,"localhost",()=> {
-//     console.log("server");
-// });
-
-//crash server with port 4000 with express package
-// app.listen(4000,"localhost",()=> {
-//     console.log("server");
-// });
